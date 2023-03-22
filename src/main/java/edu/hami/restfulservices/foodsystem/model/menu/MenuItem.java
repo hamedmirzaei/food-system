@@ -1,16 +1,17 @@
-package edu.hami.restfulservices.foodsystem.model;
+package edu.hami.restfulservices.foodsystem.model.menu;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "RESTAURANTS")
+@Table(name = "MENU_ITEM")
+@Inheritance(strategy = InheritanceType.JOINED)
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Restaurant {
+public abstract class MenuItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", unique = true)
@@ -19,9 +20,6 @@ public class Restaurant {
     @Column(name = "NAME", nullable = false)
     private String name;
 
-    @Column(name = "ADDRESS", nullable = false)
-    private String address;
-
-    @Column(name = "PHONE_NUMBER", nullable = false)
-    private String phoneNumber;
+    @Column(name = "PRICE", nullable = false)
+    private Float price;
 }
