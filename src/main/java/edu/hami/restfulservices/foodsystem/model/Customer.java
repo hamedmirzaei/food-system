@@ -30,4 +30,7 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer")
     private List<PaymentInfo> paymentInfos;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Order> orders;
 }

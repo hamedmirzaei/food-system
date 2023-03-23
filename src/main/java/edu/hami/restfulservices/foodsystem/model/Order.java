@@ -20,4 +20,8 @@ public class Order {
 
     @Column(name = "INITIATE_DATE", nullable = false)
     private Date date;
+
+    @ManyToOne
+    @JoinColumn(name = "CUSTOMER_ID", nullable = false)
+    private Customer customer;
 }
