@@ -1,11 +1,11 @@
 package edu.hami.restfulservices.foodsystem.model.payment;
 
-import edu.hami.restfulservices.foodsystem.model.Customer;
+import edu.hami.restfulservices.foodsystem.model.person.Customer;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "PAYMENT_INFO")
+@Table(name = "PAYMENT_INFOS")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TYPE", discriminatorType = DiscriminatorType.STRING)
 @Getter

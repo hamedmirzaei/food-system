@@ -1,4 +1,4 @@
-package edu.hami.restfulservices.foodsystem.model;
+package edu.hami.restfulservices.foodsystem.model.person;
 
 import jakarta.persistence.*;
 import lombok.*;

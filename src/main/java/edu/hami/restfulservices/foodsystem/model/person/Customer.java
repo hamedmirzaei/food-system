@@ -1,5 +1,6 @@
-package edu.hami.restfulservices.foodsystem.model;
+package edu.hami.restfulservices.foodsystem.model.person;
 
+import edu.hami.restfulservices.foodsystem.model.Order;
 import edu.hami.restfulservices.foodsystem.model.payment.PaymentInfo;
 import jakarta.persistence.*;
 import lombok.*;
@@ -13,17 +14,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Customer {
+public class Customer extends PersonInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", unique = true)
     private Long id;
-
-    @Column(name = "FIRST_NAME", nullable = false)
-    private String firstName;
-
-    @Column(name = "LAST_NAME", nullable = false)
-    private String lastName;
 
     @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, optional = false)
     private CustomerDetails customerDetails;
