@@ -1,6 +1,7 @@
 package edu.hami.restfulservices.foodsystem.model.person;
 
 import edu.hami.restfulservices.foodsystem.model.Restaurant;
+import edu.hami.restfulservices.foodsystem.model.enums.Position;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,10 +22,11 @@ public class Staff extends PersonInfo {
     private Long id;
 
     @Column(name = "POSITION")
-    private String position;
+    @Enumerated(EnumType.STRING)
+    private Position position;
 
     @Column(name = "SALARY")
-    private Float salary;
+    private Double salary;
 
     @ManyToMany
     @JoinTable(name = "RESTAURANT_STAFFS",

@@ -1,5 +1,8 @@
 package edu.hami.restfulservices.foodsystem.model;
 
+import edu.hami.restfulservices.foodsystem.model.enums.RestaurantType;
+import edu.hami.restfulservices.foodsystem.model.enums.RestaurantTypeConverter;
+import edu.hami.restfulservices.foodsystem.model.menu.MenuItem;
 import edu.hami.restfulservices.foodsystem.model.person.Staff;
 import jakarta.persistence.*;
 import lombok.*;
@@ -29,9 +32,15 @@ public class Restaurant {
     @Column(name = "PHONE_NUMBER", nullable = false)
     private String phoneNumber;
 
+    @Convert(converter = RestaurantTypeConverter.class)
+    private RestaurantType type;
+
     @OneToMany(mappedBy = "restaurant")
     private List<Order> orders;
 
     @ManyToMany(mappedBy = "restaurants")
     private List<Staff> staffs = new ArrayList<>();
+
+    @OneToMany(mappedBy = "restaurant")
+    private List<MenuItem> menuItems;
 }

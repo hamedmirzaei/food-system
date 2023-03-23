@@ -1,5 +1,7 @@
 package edu.hami.restfulservices.foodsystem.model.menu;
 
+import edu.hami.restfulservices.foodsystem.model.Restaurant;
+import edu.hami.restfulservices.foodsystem.model.person.Customer;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,4 +24,8 @@ public abstract class MenuItem {
 
     @Column(name = "PRICE", nullable = false)
     private Float price;
+
+    @ManyToOne
+    @JoinColumn(name = "RESTAURANT_ID", nullable = false)
+    private Restaurant restaurant;
 }
