@@ -1,5 +1,6 @@
 package edu.hami.restfulservices.foodsystem.model.payment;
 
+import edu.hami.restfulservices.foodsystem.model.Customer;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,4 +18,8 @@ public abstract class PaymentInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", unique = true)
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "CUSTOMER_ID", nullable = false)
+    private Customer customer;
 }

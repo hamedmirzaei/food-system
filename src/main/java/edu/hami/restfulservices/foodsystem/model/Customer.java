@@ -1,7 +1,10 @@
 package edu.hami.restfulservices.foodsystem.model;
 
+import edu.hami.restfulservices.foodsystem.model.payment.PaymentInfo;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "CUSTOMERS")
@@ -24,4 +27,7 @@ public class Customer {
 
     @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, optional = false)
     private CustomerDetails customerDetails;
+
+    @OneToMany(mappedBy = "customer")
+    private List<PaymentInfo> paymentInfos;
 }
