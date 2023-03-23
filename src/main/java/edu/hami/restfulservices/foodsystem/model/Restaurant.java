@@ -1,8 +1,10 @@
 package edu.hami.restfulservices.foodsystem.model;
 
+import edu.hami.restfulservices.foodsystem.model.person.Staff;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -29,4 +31,7 @@ public class Restaurant {
 
     @OneToMany(mappedBy = "restaurant")
     private List<Order> orders;
+
+    @ManyToMany(mappedBy = "restaurants")
+    private List<Staff> staffs = new ArrayList<>();
 }

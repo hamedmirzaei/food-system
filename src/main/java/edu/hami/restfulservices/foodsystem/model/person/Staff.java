@@ -1,7 +1,11 @@
 package edu.hami.restfulservices.foodsystem.model.person;
 
+import edu.hami.restfulservices.foodsystem.model.Restaurant;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "STAFFS")
@@ -21,4 +25,10 @@ public class Staff extends PersonInfo {
 
     @Column(name = "SALARY")
     private Float salary;
+
+    @ManyToMany
+    @JoinTable(name = "RESTAURANT_STAFFS",
+            joinColumns = @JoinColumn(name = "STAFF_ID"),
+            inverseJoinColumns = @JoinColumn(name = "RESTAURANT_ID"))
+    private List<Restaurant> restaurants = new ArrayList<>();
 }
