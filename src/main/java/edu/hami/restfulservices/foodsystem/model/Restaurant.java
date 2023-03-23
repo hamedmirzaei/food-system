@@ -3,6 +3,8 @@ package edu.hami.restfulservices.foodsystem.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "RESTAURANTS")
 @Getter
@@ -24,4 +26,7 @@ public class Restaurant {
 
     @Column(name = "PHONE_NUMBER", nullable = false)
     private String phoneNumber;
+
+    @OneToMany(mappedBy = "restaurant")
+    private List<Order> orders;
 }

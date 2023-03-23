@@ -24,4 +24,8 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "CUSTOMER_ID", nullable = false)
     private Customer customer;
+
+    @ManyToOne
+    @JoinColumn(name = "RESTAURANT_ID", nullable = false)
+    private Restaurant restaurant;
 }
