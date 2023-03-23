@@ -14,7 +14,6 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 public class Staff extends PersonInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,4 +32,15 @@ public class Staff extends PersonInfo {
             joinColumns = @JoinColumn(name = "STAFF_ID"),
             inverseJoinColumns = @JoinColumn(name = "RESTAURANT_ID"))
     private List<Restaurant> restaurants = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "Staff{" +
+                "id=" + id +
+                ", firstName=" + getFirstName() +
+                ", lastName=" + getLastName() +
+                ", position=" + position +
+                ", salary=" + salary +
+                '}';
+    }
 }
