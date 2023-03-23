@@ -22,7 +22,6 @@ public class Customer {
     @Column(name = "LAST_NAME", nullable = false)
     private String lastName;
 
-    @Column(name = "PHONE_NUMBER", nullable = false)
-    private String phoneNumber;
-
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, optional = false)
+    private CustomerDetails customerDetails;
 }
