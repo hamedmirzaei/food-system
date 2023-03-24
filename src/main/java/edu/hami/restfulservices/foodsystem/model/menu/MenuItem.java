@@ -23,7 +23,7 @@ public abstract class MenuItem {
     private String name;
 
     @Column(name = "PRICE", nullable = false)
-    private Float price;
+    private Double price;
 
     @ManyToOne
     @JoinColumn(name = "RESTAURANT_ID", nullable = false)

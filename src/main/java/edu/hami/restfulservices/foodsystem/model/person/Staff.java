@@ -1,9 +1,11 @@
 package edu.hami.restfulservices.foodsystem.model.person;
 
-import edu.hami.restfulservices.foodsystem.model.Restaurant;
-import edu.hami.restfulservices.foodsystem.model.enums.Position;
+import edu.hami.restfulservices.foodsystem.model.RestaurantStaff;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,18 +22,11 @@ public class Staff extends PersonInfo {
     @Column(name = "ID", unique = true)
     private Long id;
 
-    @Column(name = "POSITION")
-    @Enumerated(EnumType.STRING)
-    private Position position;
-
     @Column(name = "SALARY")
     private Double salary;
 
-    @ManyToMany
-    @JoinTable(name = "RESTAURANT_STAFFS",
-            joinColumns = @JoinColumn(name = "STAFF_ID"),
-            inverseJoinColumns = @JoinColumn(name = "RESTAURANT_ID"))
-    private List<Restaurant> restaurants = new ArrayList<>();
+    @OneToMany(mappedBy = "staff")
+    private List<RestaurantStaff> restaurantStaffs = new ArrayList<>();
 
     @Override
     public String toString() {
@@ -39,7 +34,6 @@ public class Staff extends PersonInfo {
                 "id=" + id +
                 ", firstName=" + getFirstName() +
                 ", lastName=" + getLastName() +
-                ", position=" + position +
                 ", salary=" + salary +
                 '}';
     }

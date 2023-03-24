@@ -20,8 +20,8 @@ public class Customer extends PersonInfo {
     @Column(name = "ID", unique = true)
     private Long id;
 
-    @Column(name = "ADDRESS")
-    private String address;
+    @Column(name = "EMAIL")
+    private String email;
 
     @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, optional = false)
     private CustomerDetails customerDetails;

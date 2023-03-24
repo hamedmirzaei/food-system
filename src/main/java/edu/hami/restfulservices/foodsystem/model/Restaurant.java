@@ -3,6 +3,7 @@ package edu.hami.restfulservices.foodsystem.model;
 import edu.hami.restfulservices.foodsystem.model.enums.RestaurantType;
 import edu.hami.restfulservices.foodsystem.model.enums.RestaurantTypeConverter;
 import edu.hami.restfulservices.foodsystem.model.menu.MenuItem;
+import edu.hami.restfulservices.foodsystem.model.person.Delivery;
 import edu.hami.restfulservices.foodsystem.model.person.Staff;
 import jakarta.persistence.*;
 import lombok.*;
@@ -38,8 +39,11 @@ public class Restaurant {
     @OneToMany(mappedBy = "restaurant")
     private List<Order> orders;
 
+    @OneToMany(mappedBy = "restaurant")
+    private List<RestaurantStaff> restaurantStaffs = new ArrayList<>();
+
     @ManyToMany(mappedBy = "restaurants")
-    private List<Staff> staffs = new ArrayList<>();
+    private List<Delivery> deliveries = new ArrayList<>();
 
     @OneToMany(mappedBy = "restaurant")
     private List<MenuItem> menuItems;
