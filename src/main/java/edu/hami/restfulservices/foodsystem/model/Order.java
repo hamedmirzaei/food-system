@@ -1,10 +1,14 @@
 package edu.hami.restfulservices.foodsystem.model;
 
+import edu.hami.restfulservices.foodsystem.model.menu.MenuItem;
 import edu.hami.restfulservices.foodsystem.model.person.Customer;
+import edu.hami.restfulservices.foodsystem.model.person.Delivery;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "ORDERS")
@@ -29,4 +33,7 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "RESTAURANT_ID", nullable = false)
     private Restaurant restaurant;
+
+    @ManyToMany(mappedBy = "orders")
+    private List<MenuItem> menuItems = new ArrayList<>();
 }

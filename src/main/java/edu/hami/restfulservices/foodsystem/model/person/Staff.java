@@ -1,7 +1,10 @@
 package edu.hami.restfulservices.foodsystem.model.person;
 
 import edu.hami.restfulservices.foodsystem.model.RestaurantStaff;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,10 +20,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Staff extends PersonInfo {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", unique = true)
-    private Long id;
 
     @Column(name = "SALARY")
     private Double salary;
@@ -31,7 +30,7 @@ public class Staff extends PersonInfo {
     @Override
     public String toString() {
         return "Staff{" +
-                "id=" + id +
+                "id=" + getId() +
                 ", firstName=" + getFirstName() +
                 ", lastName=" + getLastName() +
                 ", salary=" + salary +

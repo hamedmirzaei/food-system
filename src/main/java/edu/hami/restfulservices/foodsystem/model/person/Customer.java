@@ -15,10 +15,6 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 public class Customer extends PersonInfo {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", unique = true)
-    private Long id;
 
     @Column(name = "EMAIL")
     private String email;
@@ -31,4 +27,8 @@ public class Customer extends PersonInfo {
 
     @OneToMany(mappedBy = "customer")
     private List<Order> orders;
+
+    public void addOrder(Order order) {
+        orders.add(order);
+    }
 }

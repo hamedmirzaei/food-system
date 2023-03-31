@@ -9,16 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "DELIVERY")
+@Table(name = "DELIVERIES")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Delivery extends PersonInfo {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", unique = true)
-    private Long id;
 
     @Column(name = "VEHICLE")
     @Enumerated(EnumType.STRING)
@@ -36,10 +32,14 @@ public class Delivery extends PersonInfo {
     @Override
     public String toString() {
         return "Delivery{" +
-                "id=" + id +
+                "id=" + getId() +
                 ", firstName=" + getFirstName() +
                 ", lastName=" + getLastName() +
                 ", vehicle=" + vehicle +
                 '}';
+    }
+
+    public void addRestaurant(Restaurant restaurant) {
+        restaurants.add(restaurant);
     }
 }

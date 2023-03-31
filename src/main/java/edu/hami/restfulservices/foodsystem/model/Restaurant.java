@@ -47,4 +47,8 @@ public class Restaurant {
 
     @OneToMany(mappedBy = "restaurant")
     private List<MenuItem> menuItems;
+
+    public void addOrder(Order order) {
+        orders.add(order);
+    }
 }

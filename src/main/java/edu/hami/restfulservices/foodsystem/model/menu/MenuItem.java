@@ -1,9 +1,12 @@
 package edu.hami.restfulservices.foodsystem.model.menu;
 
+import edu.hami.restfulservices.foodsystem.model.Order;
 import edu.hami.restfulservices.foodsystem.model.Restaurant;
-import edu.hami.restfulservices.foodsystem.model.person.Customer;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "MENU_ITEMS")
@@ -28,4 +31,10 @@ public abstract class MenuItem {
     @ManyToOne
     @JoinColumn(name = "RESTAURANT_ID", nullable = false)
     private Restaurant restaurant;
+
+    @ManyToMany
+    @JoinTable(name = "ORDER_MENUITEMS",
+            joinColumns = @JoinColumn(name = "MENUITEM_ID"),
+            inverseJoinColumns = @JoinColumn(name = "ORDER_ID"))
+    private List<Order> orders = new ArrayList<>();
 }
