@@ -25,10 +25,10 @@ public class RestaurantController {
 
     @GetMapping
     @Operation(summary = "Get all restaurants")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "All restaurants returned found"),
-            @ApiResponse(responseCode = "403", description = "You don't have access to this operation")
-    })
+//    @ApiResponses(value = {
+//            @ApiResponse(responseCode = "200", description = "All restaurants returned found"),
+//            @ApiResponse(responseCode = "403", description = "You don't have access to this operation")
+//    })
     public List<Restaurant> getAll() {
         return restaurantService.findAll();
     }

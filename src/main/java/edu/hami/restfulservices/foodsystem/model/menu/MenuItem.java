@@ -1,5 +1,6 @@
 package edu.hami.restfulservices.foodsystem.model.menu;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import edu.hami.restfulservices.foodsystem.model.Order;
 import edu.hami.restfulservices.foodsystem.model.Restaurant;
 import jakarta.persistence.*;
@@ -30,6 +31,7 @@ public abstract class MenuItem {
 
     @ManyToOne
     @JoinColumn(name = "RESTAURANT_ID", nullable = false)
+    @JsonBackReference
     private Restaurant restaurant;
 
     @ManyToMany

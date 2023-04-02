@@ -1,5 +1,6 @@
 package edu.hami.restfulservices.foodsystem.model.person;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import edu.hami.restfulservices.foodsystem.model.Restaurant;
 import edu.hami.restfulservices.foodsystem.model.enums.VehicleType;
 import jakarta.persistence.*;
@@ -27,6 +28,7 @@ public class Delivery extends PersonInfo {
     @JoinTable(name = "RESTAURANT_DELIVERIES",
             joinColumns = @JoinColumn(name = "DELIVERY_ID"),
             inverseJoinColumns = @JoinColumn(name = "RESTAURANT_ID"))
+    @JsonBackReference
     private List<Restaurant> restaurants = new ArrayList<>();
 
     @Override

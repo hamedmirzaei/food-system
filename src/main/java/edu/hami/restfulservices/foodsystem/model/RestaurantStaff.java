@@ -1,5 +1,6 @@
 package edu.hami.restfulservices.foodsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import edu.hami.restfulservices.foodsystem.model.enums.Position;
 import edu.hami.restfulservices.foodsystem.model.person.Staff;
 import jakarta.persistence.*;
@@ -22,6 +23,7 @@ public class RestaurantStaff {
     private Long id;
 
     @ManyToOne
+    @JsonBackReference
     private Restaurant restaurant;
 
     @ManyToOne
